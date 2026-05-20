@@ -6,8 +6,7 @@ export const UPDATE_CHANNEL_CHANGED_EVENT = "updateReleaseChannelChanged";
 const CHANNEL_STABLE: UpdateReleaseChannel = "stable";
 const CHANNEL_DEV: UpdateReleaseChannel = "dev";
 
-const stableVersionPattern = /^\d+(?:\.\d+)+$/;
-const testKeywordPattern = /(alpha|beta|rc)/i;
+const stableVersionPattern = /^\d+(?:\.\d+)+(?:-rc(?:[.-]?\d+)?)?$/i;
 
 const VERSION_CACHE_TTL_MS = 10 * 60 * 1000;
 
@@ -71,11 +70,7 @@ const releaseChannelFromTag = (tag: string): ReleaseTagChannel => {
     return CHANNEL_STABLE;
   }
 
-  if (testKeywordPattern.test(normalizedTag)) {
-    return CHANNEL_DEV;
-  }
-
-  return null;
+  return CHANNEL_DEV;
 };
 
 type VersionParts = {

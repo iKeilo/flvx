@@ -10,7 +10,7 @@ func TestReleaseChannelFromTag(t *testing.T) {
 	}{
 		{name: "stable semantic version", tag: "2.1.4", expects: releaseChannelStable},
 		{name: "v prefix should be dev", tag: "v2.1.4", expects: releaseChannelDev},
-		{name: "rc release", tag: "2.1.4-rc2", expects: releaseChannelDev},
+		{name: "rc release", tag: "2.1.4-rc2", expects: releaseChannelStable},
 		{name: "beta release", tag: "2.1.4-beta.1", expects: releaseChannelDev},
 		{name: "alpha release", tag: "2.1.4-alpha", expects: releaseChannelDev},
 		{name: "non numeric tag", tag: "nightly", expects: releaseChannelDev},

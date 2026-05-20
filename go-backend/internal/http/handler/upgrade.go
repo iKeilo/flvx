@@ -35,8 +35,7 @@ const (
 )
 
 var (
-	stableVersionPattern = regexp.MustCompile(`^\d+(?:\.\d+)+$`)
-	testKeywordPattern   = regexp.MustCompile(`(?i)(alpha|beta|rc)`)
+	stableVersionPattern = regexp.MustCompile(`^\d+(?:\.\d+)+(?:-rc(?:[.-]?\d+)?)?$`)
 )
 
 const nodeOnlineRedeployCooldown = 30 * time.Second
@@ -61,9 +60,6 @@ func normalizeReleaseChannel(channel string) string {
 func releaseChannelFromTag(tag string) string {
 	normalized := strings.ToLower(strings.TrimSpace(tag))
 	if normalized == "" {
-		return releaseChannelDev
-	}
-	if testKeywordPattern.MatchString(normalized) {
 		return releaseChannelDev
 	}
 	if stableVersionPattern.MatchString(normalized) {

@@ -1994,22 +1994,12 @@ export default function NodePage() {
                                 />
                               )}
                               <div className="min-w-0 flex-1 pt-0.5">
-                                <div className="flex items-center gap-2 min-w-0">
-                                  <h3 className="font-semibold text-foreground truncate text-lg leading-5">
-                                    {node.name}
-                                  </h3>
-                                  <div
-                                    className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium flex-shrink-0
-                                      ${connectionStatusMeta.color === "success" ? "bg-emerald-500/20 text-emerald-600" : "bg-rose-500/20 text-rose-600"}
-                                    `}
-                                    title={connectionStatusMeta.text}
-                                  >
-                                    <span
-                                      className={`h-1.5 w-1.5 rounded-full ${connectionStatusMeta.color === "success" ? "bg-emerald-500" : "bg-rose-500"}`}
-                                    />
-                                    {connectionStatusMeta.text}
-                                  </div>
-                                </div>
+                                <h3
+                                  className="font-semibold text-foreground text-lg leading-5 break-words overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]"
+                                  title={node.name}
+                                >
+                                  {node.name}
+                                </h3>
                               </div>
                             </div>
                             <div className="ml-2 flex-shrink-0 self-start">
@@ -2124,6 +2114,27 @@ export default function NodePage() {
                             </div>
                           )}
                           {/* 基础信息 */}
+                          <div className="mb-3">
+                            <div
+                              className={`inline-flex max-w-full items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${
+                                connectionStatusMeta.color === "success"
+                                  ? "bg-emerald-500/20 text-emerald-600"
+                                  : "bg-rose-500/20 text-rose-600"
+                              }`}
+                              title={connectionStatusMeta.text}
+                            >
+                              <span
+                                className={`h-1.5 w-1.5 flex-shrink-0 rounded-full ${
+                                  connectionStatusMeta.color === "success"
+                                    ? "bg-emerald-500"
+                                    : "bg-rose-500"
+                                }`}
+                              />
+                              <span className="truncate">
+                                {connectionStatusMeta.text}
+                              </span>
+                            </div>
+                          </div>
                           <div className="space-y-2 mb-4">
                             {node.expiryTime &&
                               node.expiryTime > 0 &&
@@ -2970,7 +2981,7 @@ export default function NodePage() {
                       正式版（纯数字版本，如 2.1.4）
                     </SelectItem>
                     <SelectItem key="dev" textValue="dev">
-                      测试版（含 alpha / beta / rc）
+                      开发版（其他特殊标签）
                     </SelectItem>
                   </Select>
                 </div>
@@ -3090,7 +3101,7 @@ export default function NodePage() {
                         正式版（纯数字版本，如 2.1.4）
                       </SelectItem>
                       <SelectItem key="dev" textValue="dev">
-                        测试版（含 alpha / beta / rc）
+                        开发版（其他特殊标签）
                       </SelectItem>
                     </Select>
                     <Select

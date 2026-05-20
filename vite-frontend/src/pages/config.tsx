@@ -1476,7 +1476,7 @@ export default function ConfigPage() {
                 更新通道
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                稳定版仅匹配纯数字版本；开发版仅匹配包含 alpha / beta / rc
+                稳定版匹配数字版本和 rc 后缀；开发版匹配 alpha / beta 等其他特殊标签
                 的版本。
               </p>
             </div>
@@ -1493,7 +1493,7 @@ export default function ConfigPage() {
                 handleUpdateChannelChange(selected);
               }}
             >
-              <SelectItem key="stable" description="仅纯数字版本，如 2.1.4">
+              <SelectItem key="stable" description="纯数字版本和 rc 后缀，如 3.0.0 或 3.0.0-rc6">
                 稳定版
               </SelectItem>
               <SelectItem
