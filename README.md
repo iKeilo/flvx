@@ -180,10 +180,3 @@ This fork (FLVX) is no longer a light patch on top of the upstream project. It h
 请务必在合法、合规、安全的前提下使用本项目。
 
 ---
-## ⭐ 喝杯咖啡！（USDT）
-
-| 网络       | 地址                                                                 |
-|------------|----------------------------------------------------------------------|
-| BNB(BEP20) | `0x271327ce49140e670eA0F772d9886BF90E9022Ee`                          |
-| TRC20      | `TARxZWggaxFqYgxGVBxPkyykgYKNmGndmE`                                  |
-| polygon    |  `0x271327ce49140e670eA0F772d9886BF90E9022Ee`    |
